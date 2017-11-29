@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+    - set_fact:
+        main_playbook_dir: "{{ playbook_dir }}"
+
+    - debug: msg="Playbook dir {{ playbook_dir }} Main playbook dir {{ main_playbook_dir }}"
+
+- import_playbook: playbooks/playbook.yml

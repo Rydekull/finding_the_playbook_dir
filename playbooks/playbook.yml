@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+    - set_fact:
+        my_playbook_dir: "{{ main_playbook_dir if main_playbook_dir is defined else playbook_dir }}"
+
+    - debug: msg="Playbook dir {{ playbook_dir }} Main playbook dir {{ main_playbook_dir }}"
+
+    - name: Trying to find the file in the main playbook directory
+      file:
+        path: "{{ my_playbook_dir }}/findme"
